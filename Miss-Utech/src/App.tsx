@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { NavBar } from './components/ui/TubeLightNavbar';
+// CORRECTED: Path changed from './components/ui/TubeLightNavbar' to './ui/tubelight-navbar'
+import { NavBar } from './ui/tubelight-navbar'; 
 import { Home as HomeIcon, User, Calendar, Trophy, Ticket, Shield, UserCircle } from 'lucide-react';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -11,6 +12,8 @@ import { useAuth } from './hooks/useAuth';
 import { useCart } from './context/CartContext';
 import { CartDrawer } from './components/CartDrawer';
 import { ShoppingCart } from 'lucide-react';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { RevealOverlay } from './components/RevealOverlay';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -37,16 +40,13 @@ const PageWrapper = ({ children, title }: { children: React.ReactNode, title: st
   );
 };
 
-import { ErrorBoundary } from './components/ErrorBoundary';
-
-import { RevealOverlay } from './components/RevealOverlay';
-
 export default function App() {
   const { user, isAdmin, loading } = useAuth();
   const { itemCount, isCartOpen, setIsCartOpen } = useCart();
   const location = useLocation();
   
   console.log("App: Rendering, user:", user?.email, "isAdmin:", isAdmin, "loading:", loading);
+  
   const navItems = [
     { name: 'Home', url: '/', icon: HomeIcon },
     { name: 'About', url: '/#about', icon: User },

@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { Countdown } from '../components/Countdown';
 import { cn } from '../lib/utils';
 import { Calendar, MapPin, Star, Sparkles, Trophy, Music, Users, ArrowRight, Crown, Zap, Droplets, Mountain, Sparkle, Wind, Globe } from 'lucide-react';
-import { Typewriter } from '../components/ui/Typewriter';
+// CORRECTED: Path changed to '../ui/typewriter' to match actual file location and lowercase casing
+import { Typewriter } from '../ui/typewriter'; 
 import { RevealOverlay } from '../components/RevealOverlay';
 import { ElementModal, ElementType } from '../components/ElementModal';
 import { ImageModal } from '../components/ImageModal';

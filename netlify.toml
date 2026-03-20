@@ -1,5 +1,5 @@
 [build]
-  base = "Miss-Utech"
+  base = "Miss Utech"
   command = "npm run build"
   publish = "dist"
 

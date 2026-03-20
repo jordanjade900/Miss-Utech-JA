@@ -96,7 +96,7 @@ export const AdminDashboard = () => {
     return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
   };
 
-  const [manualGuest, setManualGuest] = useState({ name: '', email: '', tier: 'VIP (Sponsored)', transactionRef: '' });
+  const [manualGuest, setManualGuest] = useState({ name: '', email: '', tier: 'General/Grand Stand', transactionRef: '' });
   const [isIssuingManual, setIsIssuingManual] = useState(false);
   const [inventorySearch, setInventorySearch] = useState('');
   const [selectedScreenshot, setSelectedScreenshot] = useState<string | null>(null);
@@ -551,12 +551,12 @@ export const AdminDashboard = () => {
         timestamp: serverTimestamp(),
         isTest: true,
         items: [{
-          tierName: 'VIP (Patrons)',
+          tierName: 'General/Grand Stand',
           quantity: 1,
-          price: 3000,
-          element: 'air'
+          price: 2000,
+          element: 'earth'
         }],
-        totalAmount: 3000
+        totalAmount: 2000
       });
     } catch (err) {
       handleFirestoreError(err, OperationType.WRITE, 'ticketPurchases');
@@ -595,12 +595,7 @@ export const AdminDashboard = () => {
       const batch = writeBatch(db);
       
       const tiers = [
-        { name: 'Student (ID Required)', count: 150 },
-        { name: 'Presold', count: 200 },
-        { name: 'At Gate', count: 50 },
-        { name: 'VIP (Patrons)', count: 48 },
-        { name: 'VIP (Sponsored)', count: 31 },
-        { name: 'VIP', count: 50 }
+        { name: 'General/Grand Stand', count: 250 }
       ];
 
       let ticketIndex = 0;
@@ -937,7 +932,7 @@ export const AdminDashboard = () => {
                       onChange={(e) => setManualGuest({ ...manualGuest, tier: e.target.value })}
                       className="w-full bg-black/40 border border-white/10 px-8 py-6 text-sm tracking-widest text-white focus:outline-none focus:border-royal-gold transition-all appearance-none"
                     >
-                      {['Student (ID Required)', 'Presold', 'At Gate', 'VIP (Patrons)', 'VIP (Sponsored)', 'Talent Show'].map(tier => (
+                      {['General/Grand Stand'].map(tier => (
                         <option key={tier} value={tier} className="bg-rich-black">{tier}</option>
                       ))}
                     </select>
@@ -1219,7 +1214,7 @@ export const AdminDashboard = () => {
 
               {/* Tier Breakdown */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
-                {['Student (ID Required)', 'Presold', 'At Gate', 'VIP (Patrons)', 'VIP (Sponsored)', 'Talent Show'].map(tier => {
+                {['General/Grand Stand'].map(tier => {
                   const total = coronationInventory.filter(t => t.tier === tier).length;
                   const available = coronationInventory.filter(t => t.tier === tier && t.status === 'available').length;
                   const assigned = coronationInventory.filter(t => t.tier === tier && t.status === 'assigned').length;

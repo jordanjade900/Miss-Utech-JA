@@ -41,40 +41,12 @@ export const TicketsContact = ({ hideHeader = false }: { hideHeader?: boolean })
   const ticketTiers = [
     {
       event: "Grand Coronation",
-      name: "Student (ID Required)",
-      price: "$1,800",
-      perks: ["Entry to Grand Coronation", "Standard Seating", "Student Discount"],
-      color: "bg-earth-main/5",
-      borderColor: "border-earth-main/20",
-      element: "earth",
-      notice: "Valid UTech ID required at entry"
-    },
-    {
-      event: "Grand Coronation",
-      name: "Presold",
+      name: "General/Grand Stand",
       price: "$2,000",
-      perks: ["Entry to Grand Coronation", "Standard Seating", "Early Bird Rate"],
+      perks: ["Entry to Grand Coronation", "Standard Seating", "The Essence of a Queen Experience"],
       color: "bg-earth-main/5",
       borderColor: "border-earth-main/20",
       element: "earth"
-    },
-    {
-      event: "Grand Coronation",
-      name: "At Gate",
-      price: "$2,500",
-      perks: ["Entry to Grand Coronation", "Standard Seating", "Last Minute Access"],
-      color: "bg-earth-main/5",
-      borderColor: "border-earth-main/20",
-      element: "earth"
-    },
-    {
-      event: "Grand Coronation",
-      name: "VIP",
-      price: "$3,000",
-      perks: ["Premium Seating", "VIP Lounge Access", "Complimentary Refreshments", "Fast-track Entry"],
-      color: "bg-royal-gold",
-      borderColor: "border-rich-black/10",
-      element: "air"
     }
   ];
 
@@ -112,7 +84,7 @@ export const TicketsContact = ({ hideHeader = false }: { hideHeader?: boolean })
       {/* Ticket Pricing */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-1">
+          <div className="flex justify-center">
             {ticketTiers.map((tier, idx) => (
               <motion.div
                 key={idx}
@@ -122,7 +94,7 @@ export const TicketsContact = ({ hideHeader = false }: { hideHeader?: boolean })
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 whileHover={{ scale: 1.01 }}
                 className={cn(
-                  "p-10 flex flex-col h-full border transition-all cursor-default",
+                  "p-10 flex flex-col h-full border transition-all cursor-default max-w-md w-full",
                   tier.color,
                   tier.borderColor,
                   tier.element === 'air' ? "text-rich-black" : "text-white"
@@ -194,11 +166,11 @@ export const TicketsContact = ({ hideHeader = false }: { hideHeader?: boolean })
           <h2 className="text-4xl md:text-6xl font-serif mb-16 text-center tracking-tighter">FREQUENTLY ASKED <span className="gold-text-glow">QUESTIONS</span></h2>
           <div className="space-y-1">
             {[
-              { q: "Can I buy tickets at the door?", a: "Yes, tickets will be available at the gate for the Grand Coronation ($2,500), but we recommend buying presold tickets to save and ensure entry." },
+              { q: "Can I buy tickets at the door?", a: "Tickets may be available at the gate for the Grand Coronation, but we recommend buying presold tickets to save and ensure entry." },
               { q: "Is there a dress code for the event?", a: "For the Grand Coronation, we encourage elegant or semi-formal attire to match the prestige of the evening." },
               { q: "How do I become a sponsor?", a: "We welcome corporate and individual sponsors. Please contact us via the form above or email missutechmanagement@gmail.com for our sponsorship package." },
               { q: "Where can I park?", a: "Ample parking is available on the UTech Ja. campus near the Alfred Sangster Auditorium. Security will be present." },
-              { q: "Are student tickets available for everyone?", a: "Student tickets are exclusively for currently enrolled UTech Ja. students. A valid student ID must be presented at the gate." }
+              { q: "How do I receive my ticket?", a: "After your payment is verified by our team, your digital ticket with a unique QR code will be sent to your registered email address." }
             ].map((faq, idx) => (
               <motion.div 
                 key={idx} 

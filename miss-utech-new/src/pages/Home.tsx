@@ -146,7 +146,7 @@ export const Home = () => {
             <motion.p 
               className="text-white text-lg md:text-2xl leading-relaxed uppercase tracking-[0.2em] font-medium max-w-3xl"
             >
-              Experience the elemental journey of water, earth, and air. A celebration of beauty, intelligence, and cultural heritage.
+              Experience the elemental journey of fire, water, earth, and air. A celebration of beauty, intelligence, and cultural heritage.
             </motion.p>
 
             <div className="flex flex-col sm:flex-row gap-8 pt-8">

@@ -27,9 +27,20 @@ export const RevealOverlay: React.FC<RevealOverlayProps> = ({ children }) => {
     console.log("RevealOverlay: isRevealed changed to:", isRevealed);
   }, [isRevealed]);
 
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
   const handleAdminClick = async () => {
     console.log("Admin button clicked");
-    await login();
+    setIsLoggingIn(true);
+    try {
+      const loggedInUser = await login();
+      console.log("Login result:", loggedInUser ? "Success" : "Failed/Cancelled");
+    } catch (err) {
+      console.error("Detailed login error:", err);
+      alert("Login failed. Please ensure missutechja.netlify.app is added to 'Authorized Domains' in Firebase Console.");
+    } finally {
+      setIsLoggingIn(false);
+    }
   };
 
   // Redirect to admin if they become admin while on this screen
@@ -63,14 +74,16 @@ export const RevealOverlay: React.FC<RevealOverlayProps> = ({ children }) => {
           <div className="absolute top-8 right-8 z-50">
             <button
               onClick={handleAdminClick}
+              disabled={isLoggingIn}
               className={cn(
                 "flex items-center gap-2 px-6 py-3 border rounded-full text-[10px] font-black tracking-[0.2em] uppercase transition-all",
+                isLoggingIn ? "opacity-50 cursor-not-allowed" : "",
                 isAdmin 
                   ? "border-royal-gold text-royal-gold bg-royal-gold/10" 
                   : "border-white/10 text-white hover:text-royal-gold hover:border-royal-gold/30"
               )}
             >
-              Admin
+              {isLoggingIn ? "Logging in..." : "Admin"}
               {isAdmin && <span className="w-1.5 h-1.5 rounded-full bg-royal-gold animate-pulse" />}
             </button>
           </div>

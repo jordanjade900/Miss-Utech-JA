@@ -1,10 +1,10 @@
 {
-  "projectId": "gen-lang-client-0370226560",
-  "appId": "1:694933578205:web:9de5971c588aebaaaa5634",
-  "apiKey": "AIzaSyBQZOl6heh2BdCnvVWFDgIbaTILIuz9w7c",
-  "authDomain": "gen-lang-client-0370226560.firebaseapp.com",
-  "firestoreDatabaseId": "ai-studio-a474b0af-981d-4f7d-b55f-77c68f2622c3",
-  "storageBucket": "gen-lang-client-0370226560.firebasestorage.app",
-  "messagingSenderId": "694933578205",
-  "measurementId": ""
+  "projectId": "miss-utech-ja",
+  "appId": "1:1061293994385:web:86364b08285f1f41792a30",
+  "apiKey": "AIzaSyCErvi5Awov9_57VvhodkdhBboW_36kf7g",
+  "authDomain": "miss-utech-ja.firebaseapp.com",
+  "firestoreDatabaseId": "(default)",
+  "storageBucket": "miss-utech-ja.firebasestorage.app",
+  "messagingSenderId": "1061293994385",
+  "measurementId": "G-EG68BX35TB"
 }
